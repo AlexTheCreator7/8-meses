@@ -104,7 +104,7 @@ export const content = {
       "Me acuerdo de cuando armábamos tu maleta con listas y más listas, de los vuelos, de las escalas, de como seria tus primeros dias. Estoy muy orgulloso de ti, de lo valiente que eres.",
       "Te extraño de una forma que no sé explicar bien. Extraño tu voz sin una pantalla de por medio, tus abrazos, reírme contigo de cualquier tontería. A veces miro la hora y solo pienso que avance mas rapido para poder estar contigo.",
       "Pero también aprendí algo: la distancia no nos hace más lejanos, nos hace más nuestros. Cada llamada a destiempo, cada buenos días que para mí llega de madrugada, cada foto que me mandas, me confirma que contigo lo quiero todo.",
-      "Ya falta menos para febrero. Cuento los días para verte, abrazarte fuerte y no soltarte.",
+      "Ya falta menos para vernos amor. Cuento los días para verte, abrazarte fuerte y no soltarte.",
       "Te amo, mi chiquita. Hoy, mañana y en todos los kilómetros que haga falta.",
     ],
 
