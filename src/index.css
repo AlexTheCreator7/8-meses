@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ground: #f1e8da;  /* beige papel */
+  --ink: #3b2a20;     /* espresso */
+  --accent: #4a6fa5;  /* azul */
+  --paper: #f8f3ea;   /* papel claro */
+  --sand: #e6d9c3;    /* beige profundo */
+  --coffee: #3b2a20;
+  --night: #1e2740;
+  color-scheme: light;
+}
+
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+html, body { background: var(--ground); color: var(--ink); }
+body {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 500;
+  font-variant-numeric: lining-nums;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+::selection { background: var(--accent); color: var(--paper); }
+
+@media (hover: hover) and (pointer: fine) {
+  body.has-cursor, body.has-cursor * { cursor: none !important; }
+}
+
+.split-word { display: inline-block; }
+.nums { font-variant-numeric: lining-nums tabular-nums; }
+/* el script tiene ascendentes y descendentes largos: margen para que no se recorte */
+.script-pad { padding: 0.08em 0.12em 0.1em 0.04em; }
+
+/* movimiento propio de las ilustraciones (siempre hacia la derecha) */
+@keyframes drift-right { from { transform: translateX(-6%); } to { transform: translateX(6%); } }
+@keyframes sway { 0%,100% { transform: rotate(-3deg); } 50% { transform: rotate(4deg); } }
+@keyframes breathe { 0%,100% { transform: scale(1); } 50% { transform: scale(1.025); } }
+@keyframes twinkle { 0%,100% { opacity: .35; } 50% { opacity: 1; } }
+.drift { animation: drift-right 38s linear infinite alternate; }
+.sway { transform-box: fill-box; transform-origin: 50% 100%; animation: sway 4.5s ease-in-out infinite; }
+.breathe { transform-box: fill-box; transform-origin: 50% 50%; animation: breathe 4s ease-in-out infinite; }
+.twinkle { animation: twinkle 2.6s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+@keyframes digit-in { from { transform: translateX(-0.35em); opacity: 0; } to { transform: none; opacity: 1; } }
+.digit-in { animation: digit-in .7s cubic-bezier(.2,.9,.2,1) both; }
+
+@keyframes hop { 0%,100% { transform: translateY(0); } 40% { transform: translateY(-18px); } }
+.hop { animation: hop .7s cubic-bezier(.3,.7,.4,1) 3; }
+@keyframes pop-heart { 0% { transform: scale(0); } 60% { transform: scale(1.35); } 100% { transform: scale(1); } }
+.pop-heart { transform-box: fill-box; transform-origin: 50% 50%; animation: pop-heart .8s cubic-bezier(.3,1.6,.5,1) both, breathe 1.6s ease-in-out .8s infinite; }
+
+/* Tore */
+@keyframes wag { from { transform: rotate(-14deg); } to { transform: rotate(16deg); } }
+.canelo-tail { transform-box: fill-box; transform-origin: 0% 90%; }
+.wag-slow { animation: wag .6s ease-in-out infinite alternate; }
+.wag-fast { animation: wag .16s ease-in-out infinite alternate; }
+@keyframes ear-l { 0%,100% { transform: rotate(0); } 50% { transform: rotate(5deg); } }
+@keyframes ear-r { 0%,100% { transform: rotate(0); } 50% { transform: rotate(-5deg); } }
+.canelo-ear-l { transform-box: fill-box; transform-origin: 70% 0%; animation: ear-l 2.4s ease-in-out infinite; }
+.canelo-ear-r { transform-box: fill-box; transform-origin: 30% 0%; animation: ear-r 2.7s ease-in-out infinite; }
+@keyframes paw-wave { from { transform: rotate(-10deg); } to { transform: rotate(14deg); } }
+.paw-wave { transform-box: fill-box; transform-origin: 20% 100%; animation: paw-wave .3s ease-in-out infinite alternate; }
+@keyframes blink { 0%,94%,100% { transform: scaleY(1); } 97% { transform: scaleY(.1); } }
+.canelo-eyes { transform-box: fill-box; transform-origin: 50% 50%; animation: blink 3.8s infinite; }
+@keyframes step { from { transform: rotate(-16deg); } to { transform: rotate(16deg); } }
+.leg-a, .leg-b { transform-box: fill-box; transform-origin: 50% 0%; animation: step .32s ease-in-out infinite alternate; }
+.leg-b { animation-direction: alternate-reverse; }
+@keyframes bounce { from { transform: translateY(0); } to { transform: translateY(-5px); } }
+.canelo-bounce { animation: bounce .16s ease-in-out infinite alternate; }
+@keyframes float-up-right { 0% { transform: translate(0,0) scale(.6); opacity: 0; } 15% { opacity: 1; } 100% { transform: translate(40px,-90px) scale(1.1); opacity: 0; } }
+.zz { animation: float-up-right 2.6s ease-out infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.spin-slow { animation: spin 40s linear infinite; }
+@keyframes bark-pop { 0% { transform: scale(0); } 60% { transform: scale(1.12); } 100% { transform: scale(1); } }
+.bark-pop { transform-box: fill-box; transform-origin: 0% 100%; animation: bark-pop .45s cubic-bezier(.3,1.6,.5,1) both; }
+@keyframes nudge { 0%,100% { transform: translateX(0); } 50% { transform: translateX(10px); } }
+.pista-nudge { animation: nudge 1.4s ease-in-out infinite; }
+
+/* decorados de fondo */
+@keyframes swing { 0%,100% { transform: rotate(-4deg); } 50% { transform: rotate(4deg); } }
+.swing { transform-box: fill-box; transform-origin: 50% 0%; animation: swing 3.6s ease-in-out infinite; }
+@keyframes garabato { 0% { stroke-dashoffset: 1; opacity: 0; } 10% { opacity: .5; } 40% { stroke-dashoffset: 0; opacity: .5; } 80% { stroke-dashoffset: 0; opacity: .5; } 100% { stroke-dashoffset: 0; opacity: 0; } }
+.garabato { stroke-dasharray: 1; stroke-dashoffset: 1; animation: garabato 7s ease-in-out infinite; }
+@keyframes lluvia { from { transform: translate(-10px, -40px); opacity: 0; } 20% { opacity: 1; } to { transform: translate(40px, 280px); opacity: 0; } }
+.lluvia { animation: lluvia 1.4s linear infinite; }
+@keyframes flota { 0%,100% { transform: translate(0, 0) rotate(-3deg); } 50% { transform: translate(8px, -16px) rotate(3deg); } }
+.flota { transform-box: fill-box; transform-origin: 50% 100%; animation: flota 5s ease-in-out infinite; }
+@keyframes viento { 0% { transform: translateX(-200px); opacity: 0; } 20% { opacity: .55; } 80% { opacity: .55; } 100% { transform: translateX(1000px); opacity: 0; } }
+.viento { animation: viento 7s ease-in-out infinite; }
+@keyframes pulse-ring { 0%,100% { opacity: .12; transform: scale(1); } 50% { opacity: .22; transform: scale(1.06); } }
+.halo { transform-box: fill-box; transform-origin: 50% 50%; animation: pulse-ring 4s ease-in-out infinite; }
+@keyframes glint { 0%,100% { opacity: 0; } 50% { opacity: .9; } }
+.glint { animation: glint 2.2s ease-in-out infinite; }
+@keyframes constelacion { 0% { stroke-dashoffset: 1; opacity: 0; } 15% { opacity: .5; } 55% { stroke-dashoffset: 0; opacity: .5; } 85% { opacity: .5; } 100% { stroke-dashoffset: 0; opacity: 0; } }
+.constelacion { stroke-dashoffset: 1; animation: constelacion 9s ease-in-out infinite; }
+
+/* cocina */
+@keyframes vapor { 0% { transform: translate(0,0); opacity: 0; } 30% { opacity: .9; } 100% { transform: translate(14px,-40px); opacity: 0; } }
+.vapor { animation: vapor 2.4s ease-out infinite; }
+@keyframes flama { 0%,100% { transform: scaleY(1); } 50% { transform: scaleY(1.18) skewX(-4deg); } }
+.flama { transform-box: fill-box; transform-origin: 50% 100%; animation: flama .35s ease-in-out infinite; }
+@keyframes saltea { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-14px) rotate(20deg); } }
+.saltea { transform-box: fill-box; transform-origin: 50% 50%; animation: saltea .8s ease-in-out infinite; }
+@keyframes licua { to { transform: rotate(360deg); } }
+.licua { transform-box: fill-box; transform-origin: 50% 50%; animation: licua .2s linear infinite; }
+@keyframes stir { 0%,100% { transform: rotate(-14deg); } 50% { transform: rotate(14deg); } }
+.stir { transform-box: fill-box; transform-origin: 0% 100%; animation: stir .9s ease-in-out infinite; }
+@keyframes foco { 0%,100% { opacity: .22; } 50% { opacity: .34; } }
+.foco { animation: foco 4s ease-in-out infinite; }
+@keyframes en-vivo { 0%,49% { opacity: 1; } 50%,100% { opacity: .2; } }
+.en-vivo { animation: en-vivo 1.2s steps(1) infinite; }
+@keyframes burbuja { 0% { transform: translateY(0) scale(.6); opacity: 0; } 40% { opacity: 1; } 100% { transform: translateY(-14px) scale(1.1); opacity: 0; } }
+.burbuja { transform-box: fill-box; transform-origin: 50% 50%; animation: burbuja 1.1s ease-out infinite; }
+@keyframes licuando { 0%,100% { transform: translate(0,0); } 25% { transform: translate(-2px,1px); } 75% { transform: translate(2px,-1px); } }
+.licuando { animation: licuando .12s linear infinite; }
